@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <tiltle>Expense Tracker</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        input { padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <form method="POST">
+        <input type="text" name="item" placeholder="Item" required>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <button type="submit">Add Expense</button>
+    </form>
+
+    {% if expenses %}
+        <h2>All Expenses</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Item</th>
+                <th>Amount (KES)</th>
+            </tr>
+            {% for date, item, amount in expenses %}
+            <tr>
+                <td>{{ date }}</td>
+                <td>{{ item }}</td>
+                <td>{{ amount }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No expenses yet.</p>
+    {% endif %}
+</body>
+</html>

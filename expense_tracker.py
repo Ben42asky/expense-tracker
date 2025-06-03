@@ -15,7 +15,7 @@ def add_expense():
     date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(FILENAME, 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([item, amount, date])
+        writer.writerow([date, item, amount])
     print("Expense added!")
 
 def view_expenses():
